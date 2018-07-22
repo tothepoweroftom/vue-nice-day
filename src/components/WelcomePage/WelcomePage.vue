@@ -49,7 +49,6 @@ export default {
     return {
       temperaturePreference: [10,20],
       windSpeed: [10,30],
-      windDirection: 'north',
       rainfallPreference: [0,5],
 
       temperatureSlider: SliderStyling.temperature,
@@ -79,7 +78,6 @@ export default {
         let preferences = {
           wind: {
             speed: this.windSpeed,
-            direction: this.windDirection,
           },
           temperature: this.temperaturePreference,
           rain: this.rainfallPreference

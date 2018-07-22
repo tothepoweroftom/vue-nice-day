@@ -12,6 +12,7 @@ const store = new Vuex.Store({
         location: {
             name: 'amsterdam'
         },
+        loading: true,
         errorStatus: '',
         userPreferences: {
 
@@ -24,7 +25,7 @@ const store = new Vuex.Store({
         async fetchWeatherData({state,commit}) {
             try {
                 const response = await axios.get(`?q=${state.location.name}&appid=${API_KEY}&units=metric`)
-                state.weatherData = response.data;
+                commit('setWeatherData', response.data);
                 console.log(response.data);
 
             } catch(err) {
@@ -52,6 +53,10 @@ const store = new Vuex.Store({
 		},
         setErrorStatus: (state, status) => {
             state.errorStatus = status
+        },
+
+        setWeatherData: (state, data) => {
+            state.weatherData = data
         },
 
         setStatePreferences: (state, preferences) => {
