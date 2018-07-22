@@ -1,0 +1,34 @@
+
+@import 'variables.scss';
+
+html, body, button {
+    font-family: 'Raleway', sans-serif;
+
+}
+
+body {
+    background-color: $background;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: Ubuntu;
+color: $text;
+font-weight: 700;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    padding:20px;
+}
+
+.flip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    -ms-filter: fliph; /*IE*/
+    filter: fliph; /*IE*/
+}

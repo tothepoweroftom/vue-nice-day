@@ -7,26 +7,36 @@
 </template>
 
 <script>
+import {mapState, mapActions} from 'vuex'
+
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    ...mapActions(['fetchWeatherData'])
+  },
+  created() {
+    this.fetchWeatherData();
+  },
 }
 </script>
 
-<style>
+<style lang="scss">
+@import url('https://fonts.googleapis.com/css?family=Raleway|Ubuntu');
+@import './assets/styles/variables.scss';
+@import './assets/styles/main.scss';
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: $text;
   align-items: center;
   display: flex;
   flex-direction: column;
 }
 
 #content {
-  background-color: #fbfbfb;
-  border: 1px solid rgb(51, 51, 51);
+  background-color: $background;
+  border: 1px solid rgb(201, 200, 200);
   display: flex;
   flex-direction: column;
   margin-top: 20vh;
