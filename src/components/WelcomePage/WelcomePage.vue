@@ -19,7 +19,7 @@
            <vue-slider  v-model="windSpeed" v-bind="windSlider"></vue-slider>
            <div class="select-style">
             
-            <select name="select-profession" id="select-profession">
+            <select name="select-direction" id="select-direction">
               <option value="north">North</option>
               <option value="south">South</option>
               <option value="east">East</option>
@@ -40,7 +40,7 @@
 
       </li>
     </ul>
-    <button id="submit-btn">Submit</button>
+    <button id="submit-btn" @click="navigateToResults">Submit</button>
   </div>
 </template>
 
@@ -74,6 +74,11 @@ export default {
   },
 
     methods: {
+
+      navigateToResults() {
+        this.$router.push({ name: 'ResultsPage' })
+
+      }
   },
 
   filters: {

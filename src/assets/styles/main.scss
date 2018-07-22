@@ -45,3 +45,11 @@ button {
         color: #ffffff;
     }
   }
+
+
+.shrink-enter-active, .shrink-leave-active {
+transition: opacity .5s;
+}
+.shrink-enter, .shrink-leave-to /* .fade-leave-active below version 2.1.8 */ {
+opacity: 0;
+}

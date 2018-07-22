@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div id="content">
-       <router-view/>
+        <transition name="shrink">
+        <router-view/>
+        </transition>
     </div>
   </div>
 </template>
