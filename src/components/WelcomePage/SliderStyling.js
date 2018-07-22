@@ -41,7 +41,7 @@ export default {
       },
 
       wind: {
-        value: 50,
+        value: [4,10],
         width: '50%',
         height: 8,
         direction: 'horizontal',
@@ -50,12 +50,13 @@ export default {
         min: 0,
         max: 100,
         interval: 1,
+        tooltip: 'always',
+        tooltipDir: ['bottom', 'top'],
         disabled: false,
         show: true,
         realTime: false,
         tooltip: 'always',
         clickable: true,
-        tooltipDir: 'top',
         style: {
           marginBottom: '30px',
           // marginTop: '30px'
@@ -65,19 +66,25 @@ export default {
           backgroundColor: '#fff',
         },
         sliderStyle: [{
-          backgroundColor: '#333333'
+          backgroundColor: '#3498db'
+
+        }, {
+          backgroundColor: '#f05b72'
 
         }],
         tooltipStyle: [ {
-            backgroundColor: '#666666',
+            backgroundColor: '#3498db',
             borderColor: '#3498db'
           },
-        ],
+          {
+            backgroundColor: '#f05b72',
+            borderColor: '#f05b72'
+        },],
     
       },
 
       rain: {
-          value: 0,
+          value: [0,10],
           width: '80%',
           height: 8,
         direction: 'horizontal',
@@ -85,13 +92,13 @@ export default {
         eventType: 'auto',
         min: 0,
         max: 100,
+        tooltipDir: ['bottom', 'top'],
         interval: 1,
         disabled: false,
         show: true,
         realTime: false,
         tooltip: 'always',
         clickable: true,
-        tooltipDir: 'top',
         style: {
           marginBottom: '30px',
           // marginTop: '30px'
@@ -101,14 +108,20 @@ export default {
           backgroundColor: '#fff',
         },
         sliderStyle: [{
-          backgroundColor: '#333333'
+          backgroundColor: '#3498db'
+
+        }, {
+          backgroundColor: '#f05b72'
 
         }],
         tooltipStyle: [ {
-            backgroundColor: '#666666',
+            backgroundColor: '#3498db',
             borderColor: '#3498db'
           },
-        ],
+          {
+            backgroundColor: '#f05b72',
+            borderColor: '#f05b72'
+        },],
     
   
       }

@@ -25,12 +25,17 @@ const store = new Vuex.Store({
             try {
                 const response = await axios.get(`?q=${state.location.name}&appid=${API_KEY}&units=metric`)
                 state.weatherData = response.data;
-                console.log(response.data.wind);
+                console.log(response.data);
 
             } catch(err) {
                 commit('setErrorStatus', err)
             }
      
+        },
+
+        setUserPreferences({state, commit}, preferences) {
+            console.log("USer Preferences", preferences)
+            commit('setStatePreferences', preferences)
         }
 
     },
@@ -48,6 +53,10 @@ const store = new Vuex.Store({
         setErrorStatus: (state, status) => {
             state.errorStatus = status
         },
+
+        setStatePreferences: (state, preferences) => {
+            state.userPreferences = preferences
+        }
     },
 
 })

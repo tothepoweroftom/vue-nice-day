@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="content">
-        <transition name="shrink">
+        <transition name="shrink" mode="out-in">
         <router-view/>
         </transition>
     </div>
@@ -10,7 +10,7 @@
 
 <script>
 import {mapState, mapActions} from 'vuex'
-
+import _ from 'lodash'
 export default {
   name: 'App',
   methods: {
@@ -18,7 +18,13 @@ export default {
   },
   created() {
     this.fetchWeatherData();
+    if (_.isEmpty(this.userPreferences) === false) {
+      this.$router.push({name:"ResultsPage"})
+    }
   },
+  computed: {
+    ...mapState(['userPreferences']),
+  }
 }
 </script>
 

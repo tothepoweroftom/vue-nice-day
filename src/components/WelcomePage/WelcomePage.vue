@@ -14,25 +14,16 @@
       <li>
         <div class="question">
 
-          Please select your ideal wind speed and direction.
+          Please select your ideal wind speed range and direction.
 
            <vue-slider  v-model="windSpeed" v-bind="windSlider"></vue-slider>
-           <div class="select-style">
-            
-            <select name="select-direction" id="select-direction">
-              <option value="north">North</option>
-              <option value="south">South</option>
-              <option value="east">East</option>
-              <option value="west">West</option>
-            </select>
-
-          </div>
+  
 
         </div>
       </li>
       <li>
         <div class="question">
-        Please select your ideal rain amount in mm
+        Please select your ideal rain range in mm
            <vue-slider  v-model="rainfallPreference" v-bind="rainSlider"></vue-slider>
 
         </div>
@@ -40,7 +31,7 @@
 
       </li>
     </ul>
-    <button id="submit-btn" @click="navigateToResults">Submit</button>
+    <button id="submit-btn" @click="submit">Submit</button>
   </div>
 </template>
 
@@ -57,9 +48,9 @@ export default {
   data () {
     return {
       temperaturePreference: [10,20],
-      windSpeed: 10,
-      windDirection: 0,
-      rainfallPreference: 0,
+      windSpeed: [10,30],
+      windDirection: 'north',
+      rainfallPreference: [0,5],
 
       temperatureSlider: SliderStyling.temperature,
       windSlider: SliderStyling.wind,
@@ -75,7 +66,26 @@ export default {
 
     methods: {
 
-      navigateToResults() {
+      ...mapActions(['setUserPreferences']),
+
+
+      setDirection() {
+        console.log()
+      },
+
+      submit() {
+
+        // Set user preferences
+        let preferences = {
+          wind: {
+            speed: this.windSpeed,
+            direction: this.windDirection,
+          },
+          temperature: this.temperaturePreference,
+          rain: this.rainfallPreference
+        }
+        this.setUserPreferences(preferences)
+
         this.$router.push({ name: 'ResultsPage' })
 
       }
@@ -112,7 +122,6 @@ export default {
     height:25px;
     overflow: hidden;
     margin-left:20px;
-    font-family: 'Ubuntu'
 }
 
 .select-style select {
@@ -123,6 +132,8 @@ export default {
     background: transparent;
     background-image: none;
     -webkit-appearance: none;
+    cursor: pointer;
+
 }
 
 .select-style select:focus {
