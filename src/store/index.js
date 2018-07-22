@@ -12,6 +12,7 @@ export default new Vuex.Store({
         location: {
             name: 'amsterdam'
         },
+        errorStatus: ''
 
 
     },
@@ -19,15 +20,22 @@ export default new Vuex.Store({
     actions: {
 
         async fetchWeatherData({state,commit}) {
-            const response = await axios.get(`?q=${state.location.name}&appid=${API_KEY}`)
-            console.log(response);
-            state.weatherData = response.data;
+            try {
+                const response = await axios.get(`?q=${state.location.name}&appid=${API_KEY}`)
+                state.weatherData = response.data;
+
+            } catch(err) {
+                commit('setErrorStatus', err)
+            }
+     
         }
 
     },
 
     mutations: {
-
+        setErrorStatus: (state, status) => {
+            state.errorStatus = status
+        }
     },
 
 })

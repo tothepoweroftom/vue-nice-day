@@ -1,11 +1,10 @@
 <template>
   <div class="hello">
-      {{weatherData}}
+  
   </div>
 </template>
 
 <script>
-import axios from '../plugins/axios.js'
 import {mapState, mapActions} from 'vuex'
 
 export default {
@@ -16,7 +15,8 @@ export default {
   },
 
   computed: { 
-        ...mapState(['weatherData']),
+        ...mapState(['weatherData', 'errorStatus']),
+        // ...map
   },
 
     methods: {
