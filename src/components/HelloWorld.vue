@@ -1,11 +1,12 @@
 <template>
   <div class="hello">
-    
+      {{weatherData}}
   </div>
 </template>
 
 <script>
 import axios from '../plugins/axios.js'
+import {mapState, mapActions} from 'vuex'
 
 export default {
   name: 'HelloWorld',
@@ -14,19 +15,20 @@ export default {
     }
   },
 
-  mounted() {
-    this.getWeatherData();
+  computed: { 
+        ...mapState(['weatherData']),
   },
 
-  methods: {
-    async getWeatherData() {
-      let apiKey = '9c509a497e575d217c615e84e05679ea'
+    methods: {
+    ...mapActions(['fetchWeatherData'])
+  },
 
-      let city = 'budapest'; 
-        let response = await axios.get(`?q=${city}&appid=${apiKey}`)
-        console.log(response);
-    }
-  }
+  created() {
+    this.fetchWeatherData();
+    
+  },
+
+
 }
 </script>
 
