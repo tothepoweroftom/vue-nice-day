@@ -40,6 +40,7 @@
 
       </li>
     </ul>
+    <button id="submit-btn">Submit</button>
   </div>
 </template>
 
@@ -121,5 +122,14 @@ export default {
 
 .select-style select:focus {
     outline: none;
+}
+
+#submit-btn {
+  position: relative;
+  left:85%;
+  bottom:20px;
+  width:100px;
+  height:40px;
+  font-size: 15px;
 }
 </style>
