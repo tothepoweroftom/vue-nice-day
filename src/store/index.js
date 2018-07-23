@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import axios from '../plugins/axios'
+import axios from '../utils/axios'
+import DayChecker from '../utils/DayChecker'
+import _ from 'lodash'
 
 Vue.use(Vuex)
 
@@ -18,6 +20,10 @@ const store = new Vuex.Store({
 
         },
 
+        result: false,
+
+        p5Object: null,
+
     },
 
     actions: {
@@ -34,9 +40,17 @@ const store = new Vuex.Store({
      
         },
 
+        calculateDay({state, commit}) {
+            console.log("State ", DayChecker.result(state.weatherData, state.userPreferences))
+        },
+
         setUserPreferences({state, commit}, preferences) {
             console.log("USer Preferences", preferences)
             commit('setStatePreferences', preferences)
+        },
+
+        setp5ToState({ state, commit}, value) {
+            commit("setp5", value)
         }
 
     },
@@ -61,6 +75,10 @@ const store = new Vuex.Store({
 
         setStatePreferences: (state, preferences) => {
             state.userPreferences = preferences
+        },
+        setp5: (state, payload) => {
+            console.log("Payload", payload)
+            state.p5Object = payload;
         }
     },
 

@@ -77,6 +77,7 @@ export default {
 
       ...mapActions(['setUserPreferences']),
 
+      ...mapActions(['calculateDay']),
 
       setDirection() {
         console.log()
@@ -93,6 +94,7 @@ export default {
           humidity: this.humidity
         }
         this.setUserPreferences(preferences)
+        this.calculateDay()
 
         this.$router.push({ name: 'ResultsPage' })
 

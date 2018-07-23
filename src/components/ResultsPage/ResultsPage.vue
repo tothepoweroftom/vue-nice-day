@@ -3,13 +3,12 @@
         <button @click="navigatePreferences">Change Preferences</button>
 
         <h1> From the preferences that you have set I can tell you that it is a...</h1>
-        <h2 style="color:green">Nice Day!</h2>
+        <h2 style="color:green">{{result}}</h2>
     </div>
 </template>
 
 <script>
 
-import DayChecker from './DayChecker'
 import {mapState} from 'vuex'
 
 export default {
@@ -21,11 +20,10 @@ export default {
     },
 
     computed: {
-        ...mapState(['userPreferences', 'weatherData'])
+        ...mapState(['userPreferences', 'weatherData', 'result'])
     },
 
     mounted() {
-        console.log(DayChecker.result(this.weatherData, this.userPreferences))
 
 
     }

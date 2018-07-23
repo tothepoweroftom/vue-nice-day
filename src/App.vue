@@ -9,19 +9,24 @@
 
 <script>
 import {mapState, mapActions} from 'vuex'
-import Visualizer from '@/components/Visualizer/Visualizer'
+import Visualizer from './components/Visualizer/Visualizer'
 import _ from 'lodash'
 export default {
   name: 'App',
   methods: {
-    ...mapActions(['fetchWeatherData'])
+    ...mapActions(['fetchWeatherData']),
+        ...mapActions(['calculateDay'])
+
   },
   components: {
     Visualizer,
   },
   created() {
     this.fetchWeatherData();
+
+    // If we already have set preferences - > results
     if (_.isEmpty(this.userPreferences) === false) {
+      this.calculateDay();
       this.$router.push({name:"ResultsPage"})
     }
   },
