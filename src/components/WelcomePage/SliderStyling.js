@@ -20,22 +20,22 @@ export default {
           backgroundColor: '#fff',
         },
         sliderStyle: [{
-          backgroundColor: '#3498db'
+          backgroundColor: '#0045D8'
 
         }, {
-          backgroundColor: '#f05b72'
+          backgroundColor: '#ff0000'
 
         }],
         tooltipStyle: [ {
-            backgroundColor: '#3498db',
-            borderColor: '#3498db'
+            backgroundColor: '#0045D8',
+            borderColor: '#0045D8'
           },
           {
-            backgroundColor: '#f05b72',
-            borderColor: '#f05b72'
+            backgroundColor: '#ff0000',
+            borderColor: '#ff0000'
         },],
         processStyle: {
-          backgroundImage: '-webkit-linear-gradient(right, #f05b72, #3498db)'
+          backgroundImage: '-webkit-linear-gradient(right, #ff0000, #0045D8)'
         }
       },
 
@@ -64,22 +64,24 @@ export default {
           backgroundColor: '#fff',
         },
         sliderStyle: [{
-          backgroundColor: '#999'
+          backgroundColor: '#00cc66'
 
         }, {
-          backgroundColor: '#999'
+          backgroundColor: '#ff0000'
 
         }],
-        tooltipStyle: [ {
-            backgroundColor: '#333',
-            borderColor: '#333'
+        tooltipStyle: [ 
+          {
+            backgroundColor: '#00cc66',
+            borderColor: '#00cc66'
           },
           {
-            backgroundColor: '#666',
-            borderColor: '#666'
-        },],
+            backgroundColor: '#ff0000',
+            borderColor: '#ff0000'
+          },
+        ],
         processStyle: {
-          backgroundImage: '-webkit-linear-gradient(right, #333, #666)'
+          backgroundImage: '-webkit-linear-gradient(left, #00cc66,  #fef65b, #ff6600, #ff0000)'
         }
       },
 
@@ -107,22 +109,22 @@ export default {
           backgroundColor: '#fff',
         },
         sliderStyle: [{
-          backgroundColor: '#999'
+          backgroundColor: '#58C5FF'
 
         }, {
-          backgroundColor: '#999'
+          backgroundColor: '#0045D8'
 
         }],
         tooltipStyle: [ {
-            backgroundColor: '#333',
-            borderColor: '#333'
+            backgroundColor: '#58C5FF',
+            borderColor: '#58C5FF'
           },
           {
-            backgroundColor: '#666',
-            borderColor: '#666'
+            backgroundColor: '#0045D8',
+            borderColor: '#0045D8'
         },],
         processStyle: {
-          backgroundImage: '-webkit-linear-gradient(right, #333, #666)'
+          backgroundImage: '-webkit-linear-gradient(left, #58C5FF, #0045D8)'
         }
   
       }
