@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <visualizer></visualizer>
+
+    <!-- Taking this out, ran into difficulties -->
+    <!-- <visualizer></visualizer> -->
     <div id="content">
         <router-view/>
     </div>
@@ -40,6 +42,7 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Raleway|Ubuntu');
 @import './assets/styles/variables.scss';
 @import './assets/styles/main.scss';
+@import './assets/styles/animations.scss';
 
 #app {
   -webkit-font-smoothing: antialiased;

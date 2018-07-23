@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{message}} I'm here to tell you if today's weather in {{location.name | capitalize }} will be a nice day for you!</h1>
-    <h3> All I need from you is to answer a few questions.</h3>
-    <ul>
+    <h3 class="text-focus-in"> All I need from you is to answer a few questions.</h3>
+    <ul class="text-focus-in">
       <li>
           <div class="question">
             
@@ -126,6 +126,7 @@ export default {
   display: flex;
  flex-direction: row;
  justify-content: flex-start;
+ min-width:250px;
 }
 
 .select-style {
