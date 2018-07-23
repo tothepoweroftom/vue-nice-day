@@ -5,16 +5,16 @@
     <ul>
       <li>
           <div class="question">
-
+            
           Please select your ideal temperature range in degrees Celsius
 
-           <vue-slider  v-model="temperaturePreference" v-bind="temperatureSlider"></vue-slider>
+           <vue-slider  v-model="temperature" v-bind="temperatureSlider"></vue-slider>
         </div>
       </li>
       <li>
         <div class="question">
 
-          Please select your ideal wind speed range and direction.
+          Please select your ideal wind speed range in km/h
 
            <vue-slider  v-model="windSpeed" v-bind="windSlider"></vue-slider>
   
@@ -23,8 +23,8 @@
       </li>
       <li>
         <div class="question">
-        Please select your ideal rain range in mm
-           <vue-slider  v-model="rainfallPreference" v-bind="rainSlider"></vue-slider>
+        Please select your ideal humidity %
+           <vue-slider  v-model="humidity" v-bind="humiditySlider"></vue-slider>
 
         </div>
 
@@ -39,6 +39,7 @@
 import {mapState, mapActions} from 'vuex'
 import VueSlider from 'vue-slider-component'
 import SliderStyling from './SliderStyling.js'
+import _ from 'lodash'
 
 export default {
   name: 'HelloWorld',
@@ -47,19 +48,28 @@ export default {
   },
   data () {
     return {
-      temperaturePreference: [10,20],
+      temperature: [10,20],
       windSpeed: [10,30],
-      rainfallPreference: [0,5],
+      humidity: [50,60],
 
       temperatureSlider: SliderStyling.temperature,
       windSlider: SliderStyling.wind,
-      rainSlider: SliderStyling.rain,
+      humiditySlider: SliderStyling.humidity,
 
     }
   },
 
+  mounted() {
+    // Check user pref if exist, display as slider ranges
+    if (_.isEmpty(this.userPreferences) === false) {
+      this.temperature = this.userPreferences.temperature
+      this.windSpeed = this.userPreferences.wind.speed
+      this.humidity = this.userPreferences.humidity
+    }
+  },
+
   computed: { 
-        ...mapState(['weatherData', 'errorStatus', 'location']),
+        ...mapState(['weatherData', 'errorStatus', 'location', 'userPreferences']),
         // ...map
   },
 
@@ -79,8 +89,8 @@ export default {
           wind: {
             speed: this.windSpeed,
           },
-          temperature: this.temperaturePreference,
-          rain: this.rainfallPreference
+          temperature: this.temperature,
+          humidity: this.humidity
         }
         this.setUserPreferences(preferences)
 

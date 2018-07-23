@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div id="content">
-        <transition name="shrink" mode="out-in">
+        <!-- <transition name="slide-fade" mode="out-in"> -->
         <router-view/>
-        </transition>
+        <!-- </transition> -->
     </div>
   </div>
 </template>
@@ -44,7 +44,6 @@ export default {
 
 #content {
   background-color: $background;
-  border: 1px solid rgb(201, 200, 200);
   display: flex;
   flex-direction: column;
   margin-top: 20vh;

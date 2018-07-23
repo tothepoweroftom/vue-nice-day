@@ -10,7 +10,7 @@ const store = new Vuex.Store({
     state: {
         weatherData: {},
         location: {
-            name: 'amsterdam'
+            name: 'new orleans'
         },
         loading: true,
         errorStatus: '',

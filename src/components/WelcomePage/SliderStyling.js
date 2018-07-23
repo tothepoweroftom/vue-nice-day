@@ -1,7 +1,6 @@
 export default {
 
   temperature: {
-        value: [10, 20],
         width: '80%',
         height: 8,
         dotSize: 25,
@@ -10,7 +9,7 @@ export default {
         disabled: false,
         show: true,
         tooltip: 'always',
-        tooltipDir: ['bottom', 'top'],
+        tooltipDir: ['bottom', 'bottom'],
         piecewise: false,
         style: {
           marginBottom: '30px',
@@ -41,7 +40,6 @@ export default {
       },
 
       wind: {
-        value: [4,10],
         width: '50%',
         height: 8,
         direction: 'horizontal',
@@ -51,7 +49,7 @@ export default {
         max: 100,
         interval: 1,
         tooltip: 'always',
-        tooltipDir: ['bottom', 'top'],
+        tooltipDir: ['bottom', 'bottom'],
         disabled: false,
         show: true,
         realTime: false,
@@ -66,25 +64,26 @@ export default {
           backgroundColor: '#fff',
         },
         sliderStyle: [{
-          backgroundColor: '#3498db'
+          backgroundColor: '#999'
 
         }, {
-          backgroundColor: '#f05b72'
+          backgroundColor: '#999'
 
         }],
         tooltipStyle: [ {
-            backgroundColor: '#3498db',
-            borderColor: '#3498db'
+            backgroundColor: '#333',
+            borderColor: '#333'
           },
           {
-            backgroundColor: '#f05b72',
-            borderColor: '#f05b72'
+            backgroundColor: '#666',
+            borderColor: '#666'
         },],
-    
+        processStyle: {
+          backgroundImage: '-webkit-linear-gradient(right, #333, #666)'
+        }
       },
 
-      rain: {
-          value: [0,10],
+      humidity: {
           width: '80%',
           height: 8,
         direction: 'horizontal',
@@ -92,7 +91,7 @@ export default {
         eventType: 'auto',
         min: 0,
         max: 100,
-        tooltipDir: ['bottom', 'top'],
+        tooltipDir: ['bottom', 'bottom'],
         interval: 1,
         disabled: false,
         show: true,
@@ -108,21 +107,23 @@ export default {
           backgroundColor: '#fff',
         },
         sliderStyle: [{
-          backgroundColor: '#3498db'
+          backgroundColor: '#999'
 
         }, {
-          backgroundColor: '#f05b72'
+          backgroundColor: '#999'
 
         }],
         tooltipStyle: [ {
-            backgroundColor: '#3498db',
-            borderColor: '#3498db'
+            backgroundColor: '#333',
+            borderColor: '#333'
           },
           {
-            backgroundColor: '#f05b72',
-            borderColor: '#f05b72'
+            backgroundColor: '#666',
+            borderColor: '#666'
         },],
-    
+        processStyle: {
+          backgroundImage: '-webkit-linear-gradient(right, #333, #666)'
+        }
   
       }
 }

@@ -16,6 +16,13 @@ export default {
             result.wind = false
         }
 
+        // Check humidity
+        if(weatherData.main.humidity >= userData.humidity[0] && weatherData.main.humidity < userData.humidity[1]){
+            result.humidity = true
+        } else {
+            result.humidity = false
+        }
+
 
         return result
     }

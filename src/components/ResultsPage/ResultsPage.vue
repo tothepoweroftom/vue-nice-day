@@ -24,7 +24,7 @@ export default {
         ...mapState(['userPreferences', 'weatherData'])
     },
 
-    created() {
+    mounted() {
         console.log(DayChecker.result(this.weatherData, this.userPreferences))
 
 
