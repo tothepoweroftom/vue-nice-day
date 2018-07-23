@@ -23,6 +23,14 @@ export default {
             result.humidity = false
         }
 
+        // Total result
+
+        if(result.temperature && result.wind && result.humidity) {
+            result.total = true
+        } else {
+            result.total = false
+        }
+
 
         return result
     }

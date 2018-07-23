@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>Welcome! I'm here to tell you if today's weather in {{location.name | capitalize }} will be a nice day for you!</h1>
+    <h1>{{message}} I'm here to tell you if today's weather in {{location.name | capitalize }} will be a nice day for you!</h1>
     <h3> All I need from you is to answer a few questions.</h3>
     <ul>
       <li>
@@ -55,6 +55,7 @@ export default {
       temperatureSlider: SliderStyling.temperature,
       windSlider: SliderStyling.wind,
       humiditySlider: SliderStyling.humidity,
+      message: 'Welcome!'
 
     }
   },
@@ -62,6 +63,7 @@ export default {
   mounted() {
     // Check user pref if exist, display as slider ranges
     if (_.isEmpty(this.userPreferences) === false) {
+      this.message = 'Welcome back!'
       this.temperature = this.userPreferences.temperature
       this.windSpeed = this.userPreferences.wind.speed
       this.humidity = this.userPreferences.humidity

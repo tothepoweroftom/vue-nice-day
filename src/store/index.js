@@ -20,7 +20,8 @@ const store = new Vuex.Store({
 
         },
 
-        result: false,
+        result: {},
+        color: '#aaaaaa',
 
         p5Object: null,
 
@@ -42,6 +43,7 @@ const store = new Vuex.Store({
 
         calculateDay({state, commit}) {
             console.log("State ", DayChecker.result(state.weatherData, state.userPreferences))
+            commit("setResult", DayChecker.result(state.weatherData, state.userPreferences))
         },
 
         setUserPreferences({state, commit}, preferences) {
@@ -79,6 +81,10 @@ const store = new Vuex.Store({
         setp5: (state, payload) => {
             console.log("Payload", payload)
             state.p5Object = payload;
+        },
+
+        setResult: (state, result) => {
+            state.result = result
         }
     },
 
