@@ -6,25 +6,25 @@
       <li>
           <div class="question">
             
-          Please select your ideal temperature range in degrees Celsius
+          <p class="text">Please select your ideal temperature range in degrees Celsius </p>
 
-           <vue-slider  v-model="temperature" v-bind="temperatureSlider"></vue-slider>
+           <vue-slider class="preference-slider"  v-model="temperature" v-bind="temperatureSlider"></vue-slider>
         </div>
       </li>
       <li>
         <div class="question">
 
-          Please select your ideal wind speed range in km/h
+          <p class="text"> Please select your ideal wind speed range in km/h </p>
 
-           <vue-slider  v-model="windSpeed" v-bind="windSlider"></vue-slider>
+           <vue-slider  class="preference-slider"  v-model="windSpeed" v-bind="windSlider"></vue-slider>
   
 
         </div>
       </li>
       <li>
         <div class="question">
-        Please select your ideal humidity %
-           <vue-slider  v-model="humidity" v-bind="humiditySlider"></vue-slider>
+         <p class="text">Please select your ideal humidity % </p>
+           <vue-slider class="preference-slider"   v-model="humidity" v-bind="humiditySlider"></vue-slider>
 
         </div>
 
@@ -121,7 +121,7 @@ export default {
 .question {
   display: flex;
  flex-direction: row;
- margin:0px -0px;
+ justify-content: flex-start;
 }
 
 .select-style {
@@ -147,7 +147,12 @@ export default {
 .select-style select:focus {
     outline: none;
 }
+.preference-slider {
+  flex-basis: 50%;
+  right:40px;
+  margin-left: 100px;
 
+}
 #submit-btn {
   position: relative;
   left:85%;

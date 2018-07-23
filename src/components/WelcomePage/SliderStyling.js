@@ -9,7 +9,7 @@ export default {
         disabled: false,
         show: true,
         tooltip: 'always',
-        tooltipDir: ['bottom', 'bottom'],
+        tooltipDir: ['bottom', 'top'],
         piecewise: false,
         style: {
           marginBottom: '30px',

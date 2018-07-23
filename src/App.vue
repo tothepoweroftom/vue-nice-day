@@ -1,20 +1,23 @@
 <template>
   <div id="app">
+    <visualizer></visualizer>
     <div id="content">
-        <!-- <transition name="slide-fade" mode="out-in"> -->
         <router-view/>
-        <!-- </transition> -->
     </div>
   </div>
 </template>
 
 <script>
 import {mapState, mapActions} from 'vuex'
+import Visualizer from '@/components/Visualizer/Visualizer'
 import _ from 'lodash'
 export default {
   name: 'App',
   methods: {
     ...mapActions(['fetchWeatherData'])
+  },
+  components: {
+    Visualizer,
   },
   created() {
     this.fetchWeatherData();
