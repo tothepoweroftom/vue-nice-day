@@ -8,8 +8,7 @@ Vue.use(Vuex)
 
 const API_KEY = '9c509a497e575d217c615e84e05679ea'
 
-const store = new Vuex.Store({
-    state: {
+const state = {
         weatherData: {},
         location: {
             name: 'amsterdam'
@@ -25,69 +24,74 @@ const store = new Vuex.Store({
 
         p5Object: null,
 
-    },
+}
 
-    actions: {
+export const actions = {
 
-        async fetchWeatherData({state,commit}) {
-            try {
-                const response = await axios.get(`?q=${state.location.name}&appid=${API_KEY}&units=metric`)
-                commit('setWeatherData', response.data);
-                console.log(response.data);
+    async fetchWeatherData({state,commit}) {
+        try {
+            const response = await axios.get(`?q=${state.location.name}&appid=${API_KEY}&units=metric`)
+            commit('setWeatherData', response.data);
+            console.log(response.data);
 
-            } catch(err) {
-                commit('setErrorStatus', err)
-            }
-     
-        },
-
-        calculateDay({state, commit}) {
-            console.log("State ", DayChecker.result(state.weatherData, state.userPreferences))
-            commit("setResult", DayChecker.result(state.weatherData, state.userPreferences))
-        },
-
-        setUserPreferences({state, commit}, preferences) {
-            console.log("USer Preferences", preferences)
-            commit('setStatePreferences', preferences)
-        },
-
-        setp5ToState({ state, commit}, value) {
-            commit("setp5", value)
+        } catch(err) {
+            commit('setErrorStatus', err)
         }
-
+ 
     },
 
-    mutations: {
-        initialiseStore(state) {
-			// Check if the ID exists
-			if(localStorage.getItem('store')) {
-                // Replace the state object with the stored item
-                this.replaceState(
-                    Object.assign(state, JSON.parse(localStorage.getItem('store')))
-                );
-			}
-		},
-        setErrorStatus: (state, status) => {
-            state.errorStatus = status
-        },
+    calculateDay({state, commit}) {
+        console.log("State ", DayChecker.result(state.weatherData, state.userPreferences))
+        commit("setResult", DayChecker.result(state.weatherData, state.userPreferences))
+    },
 
-        setWeatherData: (state, data) => {
-            state.weatherData = data
-        },
+    setUserPreferences({state, commit}, preferences) {
+        console.log("USer Preferences", preferences)
+        commit('setStatePreferences', preferences)
+    },
 
-        setStatePreferences: (state, preferences) => {
-            state.userPreferences = preferences
-        },
-        setp5: (state, payload) => {
-            console.log("Payload", payload)
-            state.p5Object = payload;
-        },
+    setp5ToState({ state, commit}, value) {
+        commit("setp5", value)
+    }
 
-        setResult: (state, result) => {
-            state.result = result
+}
+
+export const mutations = {
+    initialiseStore(state) {
+        // Check if the ID exists
+        if(localStorage.getItem('store')) {
+            // Replace the state object with the stored item
+            this.replaceState(
+                Object.assign(state, JSON.parse(localStorage.getItem('store')))
+            );
         }
     },
+    setErrorStatus: (state, status) => {
+        state.errorStatus = status
+    },
 
+    setWeatherData: (state, data) => {
+        state.weatherData = data
+    },
+
+    setStatePreferences: (state, preferences) => {
+        state.userPreferences = preferences
+    },
+    setp5: (state, payload) => {
+        console.log("Payload", payload)
+        state.p5Object = payload;
+    },
+
+    setResult: (state, result) => {
+        state.result = result
+    }
+}
+
+
+const store = new Vuex.Store({
+    state,
+    mutations,  
+    actions 
 })
 
 // Subscribe to store updates

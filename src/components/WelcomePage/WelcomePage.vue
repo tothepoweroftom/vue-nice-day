@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{message}} I'm here to tell you if today's weather in {{location.name | capitalize }} will be a nice day for you!</h1>
-    <h3 class="text-focus-in"> All I need from you is to answer a few questions.</h3>
+    <h3 class="text-focus-in"> {{questionMessage}}</h3>
     <ul class="text-focus-in">
       <li>
           <div class="question">
@@ -55,7 +55,8 @@ export default {
       temperatureSlider: SliderStyling.temperature,
       windSlider: SliderStyling.wind,
       humiditySlider: SliderStyling.humidity,
-      message: 'Welcome!'
+      message: 'Welcome!',
+      questionMessage: 'All I need from you is to answer a few questions.'
 
     }
   },
@@ -64,6 +65,7 @@ export default {
     // Check user pref if exist, display as slider ranges
     if (_.isEmpty(this.userPreferences) === false) {
       this.message = 'Welcome back!'
+      this.questionMessage = "To change your preferences reanswer these questions."
       this.temperature = this.userPreferences.temperature
       this.windSpeed = this.userPreferences.wind.speed
       this.humidity = this.userPreferences.humidity
