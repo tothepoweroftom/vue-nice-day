@@ -9,7 +9,7 @@ export default {
         disabled: false,
         show: true,
         tooltip: 'always',
-        tooltipDir: ['bottom', 'top'],
+        tooltipDir: ['bottom', 'bottom'],
         piecewise: false,
         style: {
           marginBottom: '30px',
@@ -17,7 +17,7 @@ export default {
 
         },
         bgStyle: {
-          backgroundColor: '#fff',
+          backgroundColor: '#eee',
         },
         sliderStyle: [{
           backgroundColor: '#0045D8'
@@ -43,7 +43,7 @@ export default {
         width: '50%',
         height: 8,
         direction: 'horizontal',
-        dotSize: 20,
+        dotSize: 25,
         eventType: 'auto',
         min: 0,
         max: 100,
@@ -61,7 +61,7 @@ export default {
 
         },
         bgStyle: {
-          backgroundColor: '#fff',
+          backgroundColor: '#eee',
         },
         sliderStyle: [{
           backgroundColor: '#00cc66'
@@ -89,7 +89,7 @@ export default {
           width: '80%',
           height: 8,
         direction: 'horizontal',
-        dotSize: 20,
+        dotSize: 25,
         eventType: 'auto',
         min: 0,
         max: 100,
@@ -106,7 +106,7 @@ export default {
 
         },
         bgStyle: {
-          backgroundColor: '#fff',
+          backgroundColor: '#eee',
         },
         sliderStyle: [{
           backgroundColor: '#58C5FF'

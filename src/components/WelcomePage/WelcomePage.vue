@@ -3,15 +3,13 @@
     <h1>{{message}} I'm here to tell you if today's weather in {{location.name | capitalize }} will be a nice day for you!</h1>
     <h3 class="text-focus-in"> {{questionMessage}}</h3>
     <ul class="text-focus-in">
-      <li>
+      <div class="question-column">
           <div class="question">
             
           <p class="text">Please select your ideal temperature range in degrees Celsius </p>
 
            <vue-slider class="preference-slider"  v-model="temperature" v-bind="temperatureSlider"></vue-slider>
         </div>
-      </li>
-      <li>
         <div class="question">
 
           <p class="text"> Please select your ideal wind speed range in km/h </p>
@@ -20,16 +18,14 @@
   
 
         </div>
-      </li>
-      <li>
         <div class="question">
          <p class="text">Please select your ideal humidity % </p>
            <vue-slider class="preference-slider"   v-model="humidity" v-bind="humiditySlider"></vue-slider>
 
         </div>
+      </div>
 
 
-      </li>
     </ul>
     <button id="submit-btn" @click="submit">Submit</button>
   </div>
@@ -123,7 +119,11 @@ export default {
 #hello {
     text-align: left;
 }
-
+.question-column {
+  display: flex;
+  flex-direction: column;
+  margin-bottom:50px;
+}
 .question {
   display: flex;
  flex-direction: row;
@@ -156,9 +156,14 @@ export default {
 }
 .preference-slider {
   flex-basis: 50%;
+  min-width: 50%;
   right:40px;
   margin-left: 100px;
 
+}
+
+.text {
+  flex-basis: 50%;
 }
 #submit-btn {
   position: relative;
